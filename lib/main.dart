@@ -19,27 +19,27 @@ class MyApp extends StatelessWidget {
             title: Text("コリアンダー"),
           ),
           body: Consumer<MainModel>(
-              builder: (context, model, child) {
-                return Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        model.lightText,
-                        style: TextStyle(
-                          fontSize: 30,
-                        ),
+            builder: (context, model, child) {
+              return Center(
+                child: Column(
+                  children: [
+                    Text(
+                      model.lightText,
+                      style: TextStyle(
+                        fontSize: 30,
                       ),
-                      RaisedButton(
-                        child: Text("ボタン"),
-                        onPressed: (){
-                          //ここで何か
-                          model.changeLightText();
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              }
+                    ),
+                    RaisedButton(
+                      child: Text("ボタン"),
+                      onPressed: (){
+                        //ここで何か
+                        model.changeLightText();
+                      },
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ),
