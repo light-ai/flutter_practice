@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Quest {
   Quest(DocumentSnapshot doc) {
     this.title = doc.data()["title"];
-    this.createdAt = doc.data()["createdAt"];
+    this.createdAt = doc.data()["createdAt"].toDate();
   }
   String title;
   DateTime createdAt;

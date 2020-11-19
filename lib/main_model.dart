@@ -6,7 +6,7 @@ class MainModel extends ChangeNotifier{
   String lightText = "wwwwww";
   List<Quest> quest = [];
 
-  Future questList() async{
+  Future getQuestList() async{
     final snapshot = await FirebaseFirestore.instance.collection("quest").get();
     final docs = snapshot.docs;
     final quest = docs.map((doc) => Quest(doc)).toList();
