@@ -14,6 +14,16 @@ class MainModel extends ChangeNotifier{
     notifyListeners();
   }
 
+  void getQuestListRealtime(){
+    final snapshots = FirebaseFirestore.instance.collection("quest").snapshots();
+    snapshots.listen((snapshot){
+      final docs = snapshot.docs;
+      final quest = docs.map((doc) => Quest(doc)).toList();
+      quest.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      this.quest = quest;
+      notifyListeners();
+    });
+  }
   void changeLightText() {
     lightText = "ああああああ";
     notifyListeners();
